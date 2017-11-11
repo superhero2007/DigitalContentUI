@@ -1,0 +1,104 @@
+<div class="container-fluid dc-purchase-tokens no-padd">
+
+    <div class="row">
+        <section class="section">
+            <div class="row">
+                <div class=" min-height">
+                    <h3 class="dc-purchase-tokens-title">PURCHASE TOKENS</h3>
+                </div>
+            </div>
+            <div class="dc-purchase-form">
+                <div class="row">
+                    <div class="dc-currency-type dc-purchase-form-item  min-height">
+                        <div class="col-md-4 col-sm-2">
+                            <label>Currency Type</label>
+                        </div>
+                        <div class="col-md-8 col-sm-10">
+                            <div class="dc-currency-list dc-flex _w65">
+                                <button *ngFor="let cur of currenciesArr" (click)="selectCurrencyType(cur)" [class.active]="selectedCurrency.id == cur.id">
+                                    <span *ngIf="cur?.currency?.code != 'ETH'" class="dc-icon" [ngStyle]="{'background': 'url(' + cur?.currency?.imageUrl + ')  no-repeat'}"></span>
+                                    <span *ngIf="cur?.currency?.code == 'ETH'" class="dc-icon dc-icon-eth"></span>
+                                    <span>{{cur.currency.code}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dc-purchase-form-item _wallet-address _inline  min-height" *ngIf="(selectedCurrency.isAutoWallet)">
+                        <div class="col-md-4">
+                            <label for="wallet-address">Enter your {{selectedCurrency.currnecyType | uppercase}} wallet id from which you will send the funds</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="dc-input-block dc-flex _w65">
+                                <input [(ngModel)]="walletAddress" id="wallet-address" class="dc-full-width">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dc-conversion-rate dc-purchase-form-item _inline  min-height">
+                        <div class="col-md-4 col-sm-5">
+                            <label>Current Silvertoken Ratio</label>
+                        </div>
+                        <div class="col-md-8 col-sm-7">
+                            <div class="_conversion-value dc-flex _w65">
+                                1 SLVT = {{tokenRate}} USD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dc-purchase-form-item _inline  min-height">
+                        <div class="col-md-4">
+                            <label for="tokens-count" class="vert-padd">Enter number of tokens to purchase</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="dc-input-block dc-p-colored dc-flex _w65">
+                                <input [(ngModel)]="tokensCount" type="number" id="tokens-count" (ngModelChange)="calculateUSDCount()">
+                                <div class="_sub-data">
+                                    <i class="dc-icon dc-icon-svtk"></i>
+                                    <span class="_symbol">=</span>
+                                    <span style="margin-left:5px;" class="_usd-value">{{usdCount}} {{selectedCurrency['name']}}</span>
+                                    <span *ngIf="selectedCurrency?.currency?.code != 'ETH'" class="dc-icon" [ngStyle]="{'background': 'url(' + selectedCurrency?.currency?.imageUrl + ')  no-repeat'}"></span>
+                                    <span *ngIf="selectedCurrency?.currency?.code == 'ETH'" class="dc-icon dc-icon-eth"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dc-purchase-form-item _inline  min-height">
+                        <div class="col-md-4">
+                            <label id="atlernatively-number-of-tokens-to-purchase" class="vert-padd">Alternatively select the number of tokens to purchase</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="dc-input-block _w65 _tokens-preset-list">
+                                <label (click)="presetTokens(10)">10</label>
+                                <label (click)="presetTokens(25)">25</label>
+                                <label (click)="presetTokens(50)">50</label>
+                                <label (click)="presetTokens(100)">100</label>
+                                <label (click)="presetTokens(500)">500</label>
+                                <label (click)="presetTokens(1000)">1,000</label>
+                                <label (click)="presetTokens(5000)">5,000</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 min-height">
+                <div class="dc-hr-line"></div>
+                <div class="dc-purchase-total">
+                    <h3 class="dc-total-count">
+                        <span>Total:</span> {{usdCount}} {{selectedCurrency.name}}
+                    </h3>
+                    <button class="dc-btn _confirm-btn" (click)="purchase(purchaseType)">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+

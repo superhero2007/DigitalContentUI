@@ -1,0 +1,440 @@
+<div class="container-fluid dc-mainheader-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dc-mainHeader">
+                <div class="dc-logo-container">
+                    <a (click)="go2home()">
+                        <img src="{{logo ? logo : '/assets/img/logo.png'}}" alt="logo" class="logo-default"/>
+                    </a>
+                    <nav class="dc-header-navigation-container dc-navigation" >
+                        <ul class="dc-header-navigation">
+                            <!--<li class="dc-menu-item" data-item="Home"><a href="#" ><i class="icon-home"></i> Home</a></li>-->
+                            <!--<li class="dc-menu-item" data-item="Store"><a href="#" >About</a></li>-->
+                            <!--<li class="dc-menu-item active" data-item="Blog"><a href="#" >The Lab</a></li>-->
+                            <!--<li class="dc-menu-item" data-item="About"><a href="#" >Marketplace</a></li>-->
+                            <!--<li class="dc-menu-item" data-item="Contact"><a href="#" >Resources</a></li>-->
+                            <!--<li class="dc-menu-item" data-item="Contact"><a href="#" >ICO</a></li>-->
+                            <!--<li class="dc-menu-item" data-item="Contact"><a href="#" >FAQ</a></li>-->
+                            <li *ngIf="!user?.id" class="dc-menu-item dc-border-left" data-item="Contact"><a routerLink="/account/register-buyer" ><i class="icon-virus"></i> Sign Up</a></li>
+                            <li *ngIf="!user?.id" class="dc-menu-item" data-item="Contact"><a routerLink="/account/login" ><i class="icon-virus"></i> Log In</a></li>
+                            <li *ngIf="user?.id" class="dc-menu-item"><a><i class="icon-user"></i> {{user?.userName}}</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dc-wrapper">
+    <div class="dc-main-blog-section">
+        <div class="col-md-12">
+            <section class="blog-section ">
+                <div class="container">
+                    <div class="dc-align-center">
+                        <h3>world class talent</h3>
+                        <p>DigitalContent networks is made uo of  World Class Talent all your content needs</p>
+                        <button class="dc-btn dc-btn-round dc-empty">Find talent</button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        <div class="dc-section-footer">
+            <img class="dc-footer-img" src="/assets/img/main-section.png" >
+        </div>
+    </div>
+
+
+    <div class="container-fluid tokens-sale-block">
+        <div class="col-md-6">
+            <img src="/assets/img/token_buy.png">
+        </div>
+        <div class="col-md-6 dc-align-center" style="padding-top: 35px">
+
+            <div class="dc-timer">
+                <div class="dc-timer-item">
+                    3
+                    <span class="dc-time-label">days</span>
+                </div>
+                <div class="dc-timer-item">
+                    08
+                    <span class="dc-time-label">hours</span>
+                </div>
+                <div class="dc-timer-item">
+                    12
+                    <span class="dc-time-label">minutes</span>
+                </div>
+                <div class="dc-timer-item">
+                    33
+                    <span class="dc-time-label">seconds</span>
+                </div>
+            </div>
+
+
+            <button class="dc-btn dc-btn-blue btn-buy-tokens" style="margin-top: 25px" (click)="buyTokens()">Buy Tokens</button>
+            <br>
+            <a href="https://drive.google.com/file/d/0Bw29Bs6Rkcvkcm5zbmVFWkF4ZWc/view" target="_blank" class="dc-whitepapers-link">Whitepapers</a>
+        </div>
+
+    </div>
+
+
+    <div class="container hidden">
+        <div class="col-md-6">
+            <section class="dc-blog-section dc-mono-blog-section dc-green-theme-mode">
+                <div class="col-md-6 dc-align-center">
+                    <img src="/assets/img/mono-section-1.png">
+                </div>
+                <div class="col-md-6">
+                    <h4>the marketplace</h4>
+                    <ul class="dc-list">
+                        <li class="dc-list-points"><span>Ready-to-publish Content</span></li>
+                        <li class="dc-list-points"><span>On-Demand Content</span></li>
+                        <li class="dc-list-points"><span>Has never been published online</span></li>
+                        <li class="dc-list-points"><span>Exclusive full-license</span></li>
+                        <li class="dc-list-points"><span>Browse, Buy&Publish</span></li>
+                    </ul>
+                    <button class="dc-btn dc-btn-green dc-btn-round">Find talent</button>
+                </div>
+
+            </section>
+        </div>
+        <div class="col-md-6 dc-align-center">
+            <section class="dc-blog-section dc-mono-blog-section dc-blue-theme-mode">
+                <div class="col-md-6">
+                    <img src="/assets/img/mono-section-2.png">
+                </div>
+                <div class="col-md-6">
+                    <h4>world class talent</h4>
+                    <ul class="dc-list">
+                        <li class="dc-list-points"><span>Ready to publish content</span></li>
+                        <li class="dc-list-points"><span>Ready to publish content</span></li>
+                        <li class="dc-list-points"><span>Ready to publish content</span></li>
+                        <li class="dc-list-points"><span>Ready to publish content</span></li>
+                        <li class="dc-list-points"><span>Ready to publish content</span></li>
+                    </ul>
+                    <button class="dc-btn dc-btn-green dc-btn-round">Find talent</button>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+    <div class="dc-tab-wrapper">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="dc-tabs-btn-group-container">
+                    <ul class="dc-tabs-btn-group">
+                        <li class="dc-tab-btn dc-active"><i class="icon-home"></i> Latest</li>
+                        <li class="dc-tab-btn"><i class="icon-home"></i> Articles</li>
+                        <li class="dc-tab-btn"><i class="icon-home"></i> Videos</li>
+                        <li class="dc-tab-btn"><i class="icon-home"></i> Infographics</li>
+                        <li class="dc-tab-btn"><i class="icon-home"></i> Video</li>
+                    </ul>
+                </div>
+                <div class="dc-tab-input-form">
+                    <form>
+                        <div class="dc-search-input">
+                            <input type="text"  placeholder="Search for articles, videos, infographic, whitepapers"/>
+                            <i class="icon-search"></i>
+                        </div>
+                        <!--<div class="btn-input">-->
+                        <!---->
+                        <!--</div>-->
+                        <span>or</span> <button class="dc-btn dc-btn-green dc-btn-round">Upload your own</button>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="dc-tabs-content">
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/file.png" alt="">
+                                    <span>Article</span>
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$500</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/file.png" alt="">
+                                    <span>Article</span>
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$500</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/file.png" alt="">
+                                    <span>Article</span>
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$500</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/file.png" alt="">
+                                    <span>Article</span>
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$500</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="dc-post-item">
+                                <div class="col-md-4 dc-label">
+                                    <img src="/assets/img/video.png" alt="">
+                                </div>
+                                <div class="col-md-8 dc-info">
+                                    <h6>On-going Articles for national Massage & SPA brand</h6>
+                                    <p><span>User:</span> Max Marketing</p>
+                                    <p><span>Date:</span> 15 Aug 2017</p>
+                                </div>
+                                <div class="col-md-12 dc-post-footer">
+                                    <ul class="dc-review">
+                                        <li><i class="icon-browse"></i> 123</li>
+                                        <li><i class="icon-heart"></i> 20</li>
+                                        <li><i class="icon-in"></i> 23</li>
+                                    </ul>
+                                    <span class="dc-price">$100</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-12">
+                            <button class="dc-btn dc-btn-blue dc-btn-round">Order unique content right now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="dc-map-container">
+                <div class="dc-map-content"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="dc-footer-sidebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-3">
+                <div class="dc-left-side">
+                    <h4>Documents</h4>
+                    <a href="#">Term of Condition</a>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-5">
+                <div class="dc-right-side">
+                    <h4>Comunities</h4>
+                    <ul class="dc-footer-social">
+                        <li><a href="#"><i class="icon-profile"></i></a></li>
+                        <li><a href="#"><i class="icon-profile"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dc-main-footer">
+    <div class="dc-copy-right">
+        <span>Copyright | c | 2017</span>
+    </div>
+</div>

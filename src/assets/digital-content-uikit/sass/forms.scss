@@ -1,0 +1,41 @@
+.dc-form {
+    .dc-form-item {
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        &._lg-input {
+            input, textarea {
+                font-size: 20px;
+            }
+        }
+
+        &._dc-inline {
+            display: flex;
+            justify-content: space-between;
+
+            .dc-form-item {
+                flex: 1;
+                padding-right: 20px;
+            }
+
+            &._dc-on-start {
+                justify-content: flex-start;
+            }
+        }
+
+        &._dc-with-symbol {
+            display: flex;
+            $dc-light-gray: rgba(128, 128, 128, 0.71);
+
+            span {
+                line-height: 34px;
+                color: $dc-light-gray;
+                margin-left: 10px;
+            }
+        }
+    }
+}

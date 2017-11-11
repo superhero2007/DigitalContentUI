@@ -1,0 +1,28 @@
+
+export var GLDemoData = [
+    {user : 'John Dow', currency: 'USD', notes : '', date : null,balance: 100000000000000 ,description: "Magic source of all tokens that are issued", accountCode: '0'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "", accountCode: '100'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "Tokens", accountCode: '100,1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "Platform Token #1", accountCode: '100.1.0'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "House account of tokens", accountCode: '100.1.1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "User #1's account of tokens", accountCode:''},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "", accountCode: '1000'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "Fiat currency accounts", accountCode: '1000,1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "USD account", accountCode: '1000.1.0'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "House USD account", accountCode: '1000.1.1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "Accounts Receivable USD", accountCode: '1000.1.99'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "User USD Accounts", accountCode: '1000.1.99.1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "User #1's account of USD", accountCode:''},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "", accountCode: '2000'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "Cryptocurrency accounts", accountCode: '2000,1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "BTC account", accountCode: '2000.1.0'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "House BTC Account", accountCode: '2000.1.99'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "User BTC Accounts", accountCode: '2000.1.99.1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "User #1's BTC Account", accountCode:''},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "", accountCode: '2000'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "Cryptocurrency accounts", accountCode: '2000,2'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "ETH account", accountCode: '2000.2.0'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "House ETH Account", accountCode: '2000.2.1'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "ETH Accounts Receivable", accountCode: '2000.2.99'},
+    {user : 'John Dow', currency: 'USD', notes : '', date : null, balance: null ,description: "User ETH Accounts", accountCode: '2000.2.99.1'}]
+

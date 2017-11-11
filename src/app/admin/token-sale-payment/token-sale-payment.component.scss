@@ -1,0 +1,24 @@
+.dc-inline-block{
+    display: inline-block;
+}
+.dc-custom-container{
+   max-width: 500px;
+   margin: auto;
+}
+
+.dc-payment-block{
+    .dc-payment-header{
+        text-align: center;
+         h3{
+             line-height: 22px;
+             display: inline-block;
+             vertical-align: text-bottom;
+         }
+    }
+    .dc-payment-body{
+        .row{
+            margin: 35px 0px;
+        }
+    }
+
+}

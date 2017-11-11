@@ -1,0 +1,74 @@
+
+
+<form action="" id="uploadform" method="post" enctype="multipart/form-data" onsubmit="tmp()" style="padding-bottom: 8px;">
+    <table>
+        <tr>
+            <td>
+                <a class="button15"click='OnNew()'>
+                    <table>
+                        <tr style="text-align:center">
+                            <td style="height:35px;">New scheme</td>
+                        </tr>
+                    </table>
+                </a>
+            </td>
+            <td>
+                <a class="button15" click='OnSave()'>
+                    <table>
+                        <tr style="text-align:center">
+                            <td style="height:35px;">Save scheme</td>
+                        </tr>
+                    </table>
+                </a>
+            </td>
+            <td style="width:180px">
+                <a class="button15" href='javascript:DownloadScheme()' style="text-decoration: none;">
+                    <table>
+                        <tr style="text-align:center">
+                            <td>
+                                <img height="32px" src="/images/download.png" title="Click on this for download the workflow scheme" />
+
+                            </td>
+                            <td>Download XML</td>
+                        </tr>
+                    </table>
+                </a>
+            </td>
+            <td style="width:180px">
+                <a class="button15" href='javascript:SelectScheme("wfe")' style="text-decoration: none;">
+                    <table>
+                        <tr style="text-align:center">
+                            <td>
+                                <img height="32px" src="/images/upload.png" title="Click on this for upload a workflow scheme" />
+                            </td>
+                            <td>Upload XML</td>
+                        </tr>
+                    </table>
+                </a>
+            </td>
+            <td style="width:180px">
+                <table>
+                    <tr>
+                        <td>
+                            <a class="button15" href='javascript:DownloadSchemeBPMN()' style="text-decoration: none; width:160px">
+                                Download BPMN2
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="button15" href='javascript:SelectScheme("bpmn")' style="text-decoration: none; width:160px">
+                                Upload BPMN2
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <input type="file" name="uploadFile" id="uploadFile" style="display:none" onchange="javascript: UploadScheme();">
+</form>
+<div id="wfdesigner"></div>
+
+
+

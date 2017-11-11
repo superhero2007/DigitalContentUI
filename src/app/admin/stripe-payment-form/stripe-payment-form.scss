@@ -1,0 +1,36 @@
+$error-color:#ff645f;
+
+.dc-error-message{
+    color: $error-color;
+}
+.label-stripe-form{
+    display: block;
+    font-size: 16px;
+    padding: 10px 0;
+}
+.dc-input-groups {
+    display: block;
+    padding: 5px 0;
+    input {
+        border-radius: 3px;
+        background-color: #ffffff;
+        border: solid 1px rgba(112, 112, 112, 0.43);
+        line-height: 28px;
+        padding: 10px;
+        font-size: 20px;
+        width: 400px;
+        &::-webkit-input-placeholder{
+            font-size: 15px;
+        }
+        &::-moz-placeholder{
+            font-size: 15px;
+        }
+    }
+    input.short-input{
+        width: 130px;
+    }
+}
+.dc-button-margin-top{
+    margin-top: 15px;
+}
+

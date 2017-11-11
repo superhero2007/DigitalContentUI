@@ -1,0 +1,52 @@
+﻿<div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="dc-login-container">
+        <div class="dc-step-form">
+            <h1 class="dc-center">Login</h1>
+            <form (submit)="login()">
+                <div class="dc-signup-step">
+                    <div class="dc-input-group">
+                        <span class="dc-input-icon icon-profile"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <input placeholder="Email"
+                               [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" [ngModelOptions]="{standalone:true}"
+                               class="dc-input-form" type="email" id="email">
+                        <input placeholder="Email" class="dc-input-form" type="email" id="_email" [class.hidden]="hiddenFilled" style="opacity: 0;">
+                    </div>
+                    <div class="dc-input-group">
+                        <span class="dc-input-icon icon-profile"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        <input placeholder="********"
+                               [(ngModel)]="loginService.authenticateModel.password"  [ngModelOptions]="{standalone:true}"
+                               class="dc-input-form" type="password" id="_password">
+                        <input placeholder="********"  class="dc-input-form" [class.hidden]="hiddenFilled" style="opacity: 0;" type="password" id="password">
+                    </div>
+                </div>
+                <div class="dc-check-box-block">
+                    <button class="dc-btn dc-btn-blue dc-full-width" type="submit">Login &#x2192;</button>
+                </div>
+            </form>
+
+            <div class="col-md-12">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="dc-check-box-block">
+                        <a [routerLink]="['/account','register-buyer']">Create Account</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="dc-check-box-block " >
+                        <a style="float:right" [routerLink]="['/account','forgot-password']">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 visible-lg visible-md">
+    <div class="dc-sign-form-background dc-signup-bg-1 dc-full-height" style="margin:0 -15px">
+        <img style="height:200px" src="/assets/img/signup-bg/bg-step-1-silver.png" />
+    </div>
+    <!--<div *ngIf="!currentUrlSilver" class="dc-sign-form-background dc-signup-bg-1 dc-full-height" style="margin:0 -15px">-->
+        <!--<img   src="/assets/img/signup-bg/bg-step-1.png" />-->
+    <!--</div>-->
+</div>

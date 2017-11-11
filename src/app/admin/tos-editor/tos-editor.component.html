@@ -1,0 +1,53 @@
+<div class="dc-container">
+    <h3>Terms Of Service</h3>
+    <quill-editor [(ngModel)]="tos.tosContent">
+        <div quill-editor-toolbar>
+
+            <span class="ql-formats">
+                <button type="button" class="ql-bold"></button>
+                <button type="button" class="ql-italic"></button>
+                <button type="button" class="ql-underline"></button>
+                <button type="button" class="ql-strike"></button>
+            </span>
+
+            <span class="ql-formats">
+                <select class="ql-size">
+                    <option value="huge">Huge</option>
+                    <option value="large">Large</option>
+                    <option selected>Normal</option>
+                    <option value="small">Small</option>
+                </select>
+            </span>
+
+            <span class="ql-formats">
+              <select class="ql-align" [title]="'Aligment'">
+                <option selected></option>
+                <option value="center"></option>
+                <option value="right"></option>
+                <option value="justify"></option>
+              </select>
+            </span>
+
+            <span class="ql-formats">
+                <button type="button" class="ql-list" value="ordered"></button>
+                <button type="button" class="ql-list" value="bullet"></button>
+            </span>
+
+            <span class="ql-formats">
+                <button type="button" class="ql-link"></button>
+            </span>
+        </div>
+    </quill-editor>
+
+
+    <div class="dc-tos-control-btn">
+        <div>
+            <button class="dc-btn dc-empty dc-btn-xs" (click)="reset()">Reset to Default</button>
+        </div>
+
+        <div>
+            <button class="dc-btn dc-empty" (click)="cancel()">Cancel</button>
+            <button class="dc-btn dc-btn-mid-blue" (click)="save()">Save</button>
+        </div>
+    </div>
+</div>

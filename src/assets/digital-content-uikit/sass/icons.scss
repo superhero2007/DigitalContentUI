@@ -1,0 +1,63 @@
+.dc-bootstrap {
+
+    .dc-icon {
+        display: inline-block;
+        background-size: contain !important;
+        width: 34px;
+        height: 34px;
+
+        &.dc-icon-md {
+            width: 44px;
+            height: 44px;
+        }
+
+        &.dc-icon-sm {
+            width: 26px;
+            height: 25px;
+        }
+
+        &.dc-mail-btc {
+            background: url("/assets/purchase-tokens/mail-btc.svg") no-repeat center;
+        }
+
+        &.dc-7-days {
+            background: url("/assets/purchase-tokens/7days.svg") no-repeat center;
+        }
+
+        &.dc-mail-eth {
+            background: url("/assets/purchase-tokens/mail-eth.svg") no-repeat center;
+        }
+
+        &.dc-wallet-eth {
+            background: url("/assets/purchase-tokens/wallet-eth.svg") no-repeat center;
+        }
+
+        &.dc-wallet-btc {
+            background: url("/assets/purchase-tokens/wallet-btc.svg") no-repeat center;
+        }
+
+        &.dc-icon-dcnt {
+            background: url("/assets/purchase-tokens/usd-icon.svg") no-repeat center;
+        }
+
+        &.dc-icon-btc {
+            background: url("/assets/purchase-tokens/btc-icon.svg") no-repeat center;
+        }
+
+        &.dc-icon-svtk {
+            background: url("/assets/purchase-tokens/svtk-icon.png") no-repeat center;
+        }
+
+        &.dc-icon-ltc {
+            background: url("/assets/purchase-tokens/ltc-icon.png") no-repeat center;
+        }
+
+        &.dc-icon-eth {
+            background: url("/assets/purchase-tokens/eth-icon.png") no-repeat center;
+        }
+
+        &.dc-icon-dc {
+            background: url("/assets/purchase-tokens/dc-icon.svg") no-repeat center;
+        }
+    }
+}

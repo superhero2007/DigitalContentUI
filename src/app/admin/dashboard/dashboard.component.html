@@ -1,0 +1,169 @@
+<div class="container-fluid  dc-dashboard-container">
+
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+            <div class="dc-title">
+                My dashboard
+            </div>
+
+            <div class="row dc-dashboard-blocks _filled">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 dc-tokens-pursh">
+                    <div class="dc-dashboard-block-title">My SLVT Tokens Purchased</div>
+                    <div class="dc-dashboard-block-value">
+                        {{data?.userDcntTokensPurchased}} <span>tokens</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row dc-dashboard-blocks">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="dc-dashboard-single-line-block dc-align-center">
+                        <div class="dc-dashboard-block-title dc-inline-block">My SLVT Token Balance</div>
+                        <div class="dc-dashboard-block-value dc-inline-block">{{data?.userDcntTokensBalance}} tokens</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row dc-dashboard-blocks-blue ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="dc-blue-block">
+                    <div class="dc-dashboard-block-title">Total SLVT Participants</div>
+                    <div class="dc-dashboard-block-value">
+                        <span>{{data?.totalDcntInvestors}} </span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="dc-blue-block">
+                    <div class="dc-dashboard-block-title">SLVT to Silver Ratio</div>
+                    <div class="dc-dashboard-block-value">
+                        <span class="_small">1 SLVT = 1 Ounce of Silver</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="dc-blue-block">
+                    <div class="dc-dashboard-block-title">Total Tokens Purchased</div>
+                    <div class="dc-dashboard-block-value">
+                        <span> {{data?.totalTokensPurchased?.toFixed(0)}}% </span> of PRE-ICO
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row dc-dashboard-roadmap hidden">
+                <div class="dc-title">
+                    roadmap
+                </div>
+
+                <div class="dc-roadmap-container">
+                    <div class="dc-roadmap-timeline">
+                        <div class="dc-timeline-entry">
+                            <div class="dc-timeline-entry-title">
+                                <h3>December 2015</h3>
+                                <span class="dc-dot-marker">1</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>Item1</h3>
+                                <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+                            </div>
+                        </div>
+                        <div class="dc-timeline-entry">
+                            <div class="dc-timeline-entry-title">
+                                <h3>February 2017</h3>
+                                <span class="dc-dot-marker">2</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>Item1</h3>
+                                <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+                            </div>
+                        </div>
+                        <div class="dc-timeline-entry">
+                            <div class="dc-timeline-entry-title">
+                                <h3>September 2017</h3>
+                                <span class="dc-dot-marker">3</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>Item1</h3>
+                                <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+                            </div>
+                        </div>
+                        <div class="dc-timeline-entry active">
+                            <div class="dc-timeline-entry-title">
+                                <h3>October 2017</h3>
+                                <span class="dc-dot-marker">4</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>Item1</h3>
+                                <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+                            </div>
+                        </div>
+
+                        <div class="dc-timeline-entry">
+                            <div class="dc-timeline-entry-title">
+                                <h3>2018+</h3>
+                                <span class="dc-dot-marker">5</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>Item1</h3>
+                                <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+                            </div>
+                        </div>
+
+                        <div class="dc-timeline-entry">
+                            <div class="dc-timeline-entry-title">
+                                <h3>2024+</h3>
+                                <span class="dc-dot-marker">6</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>Item1</h3>
+                                <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+           <div class="dc-dashboard-sidebar">
+
+                <div class="dc-title dc-title-md">
+                    buy tokens now
+                </div>
+
+            <div class="dc-buy-token-btns">
+                <button *ngFor="let cur of rates?.rates"
+                        [class.hidden]="cur?.currnecyType == 'dcnt'"
+                        class="dc-btn dc-btn-mid-blue"
+                        routerLink="/app/admin/token-sale"
+                        [queryParams]="{ currency: cur?.currency?.code }">
+                    <span *ngIf="cur?.currency.code != 'ETH' && cur?.currency?.code != 'USD'" class="dc-icon" [ngStyle]="{'background': 'url(' + cur?.currency?.imageUrl + ')  no-repeat'}"></span>
+                    <span *ngIf="cur?.currency.code == 'ETH'" class="dc-icon dc-icon-eth"></span>
+                    <span *ngIf="cur?.currency.code == 'USD'" class="dc-icon dc-icon-svtk"></span>
+                    Buy with {{cur?.currency.code !== 'USD' ? cur?.currency?.name : "USD"}}
+                </button>
+            </div>
+               <div class="dc-title dc-title-md">
+                   Silvertoken Price
+               </div>
+            <div class="dc-dashboard-exchange-rates">
+                <ul>
+                    <li *ngFor="let cur of rates?.rates">
+                        <span *ngIf="cur?.currency.code != 'ETH' && cur?.currency?.code != 'USD'" class="dc-icon" [ngStyle]="{'background': 'url(' + cur?.currency?.imageUrl + ')  no-repeat'}"></span>
+                        <span *ngIf="cur?.currency.code == 'ETH'" class="dc-icon dc-icon-eth"></span>
+                        <span *ngIf="cur?.currency.code == 'USD'" class="dc-icon dc-icon-svtk"></span>
+                        <b>{{cur?.currency?.name}}&nbsp;-&nbsp;</b>
+                        <span class="dc-normal-font">{{cur?.currency?.code == 'USD' ? 17.94 : (17.94/cur?.price).toFixed(8)}}</span>
+                    </li>
+                </ul>
+            </div>
+
+           </div>
+        </div>
+    </div>
+
+</div>

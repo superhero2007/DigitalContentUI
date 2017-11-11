@@ -1,0 +1,63 @@
+$dc-blue-color: #229eda;
+
+.dc-general-ledger-container {
+
+    .dc-gl-filters {
+        display: flex;
+        justify-content: space-between;
+
+        > div {
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .dc-form-item {
+            > label {
+                line-height: 29px;
+            }
+        }
+    }
+
+
+    table {
+        tbody {
+            tr {
+
+                &:nth-child(odd) {
+                    background-color: lighten($dc-blue-color, 48%);
+                }
+
+                td {
+                    ._date {
+                        font-weight: 700;
+                        color: darken($dc-blue-color, 30%);
+                        text-transform: uppercase;
+                    }
+                    ._time {
+                        font-weight: 300;
+                    }
+
+                    ._currency {
+                        font-size: 12px;
+                        margin-left: 5px;
+                        font-weight: bold;
+                    }
+
+                    border: none;
+                }
+            }
+        }
+
+        thead {
+            th {
+                color: $dc-blue-color;
+                font-weight: 300;
+                font-size: 12px;
+                text-transform: uppercase;
+                border: none;
+
+
+            }
+        }
+    }
+}

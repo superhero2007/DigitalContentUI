@@ -1,0 +1,54 @@
+$token-sale-dark: #14141d;
+
+.tokens-sale-block {
+    background-color: $token-sale-dark;
+    height: 335px;
+
+    img {max-height: 300px}
+
+    .dc-whitepapers-link {
+        color: lightgray;
+        font-size: 14px;
+        margin-top: 20px;
+        text-decoration: underline;
+        padding-top: 0;
+        display: block;
+    }
+
+    .btn-buy-tokens {
+        font-size: 220%;
+        background: #10687d;
+        padding: 15px 40px;
+        line-height: 20px;
+        border-radius: 0;
+        height: auto;
+        text-transform: uppercase;
+    }
+}
+
+
+.dc-timer {
+    display: flex;
+    font-size: 22px;
+    justify-content: space-evenly;
+    padding: 30px;
+
+    .dc-timer-item {
+
+        color: #1f8098;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 25%;
+        line-height: 24px;
+        font-size: 30px;
+        padding-top: 9px;
+
+        .dc-time-label {
+            font-size: 12px;
+            display: block;
+            color: $token-sale-dark;
+        }
+    }
+}
+

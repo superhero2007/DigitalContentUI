@@ -1,0 +1,155 @@
+<div class="dc-bootstrap dc-purchase-tokens">
+
+    <div class="dc-buy-success">
+            <div class="dc-custom-container">
+               <div class="dc-payment-block">
+
+                   <div class="dc-payment-header">
+
+                       <h3 class="dc-upper-case">
+                           <span style="margin-bottom: -7px" class="dc-icon" [ngStyle]="{'background': 'url(' + userPaymentData.currencyUrlImg + ') no-repeat'}"></span>
+                           BUY TOKENS WITH {{userPaymentData.currencyCode}}
+                       </h3>
+                   </div>
+
+                   <div class="dc-payment-body">
+                       <div class="row">
+                           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 dc-small-grid-margin">
+                               <span class="dc-icon dc-7-days dc-icon-md"></span>
+                           </div>
+                           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dc-small-grid-margin">
+                               <span class="dc-description">Silvertokens will be distributed within 7 days after the completion of the ICO.</span>
+                           </div>
+                       </div>
+
+                       <div class="row" *ngIf="paymentTypeDcnt" >
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dc-small-grid-margin">
+                               <div class="_item dc-flex">
+                                   <app-stripe-payment-form
+                                       [userPaymentData]="userPaymentData"
+                                   ></app-stripe-payment-form>
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class="row" *ngIf="!paymentTypeDcnt">
+                           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 dc-small-grid-margin">
+                               <span class="dc-icon" [ngStyle]="{'background': 'url(' + userPaymentData.currencyUrlImg + ') no-repeat'}"></span>
+                           </div>
+                           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dc-small-grid-margin">
+
+                               <div *ngIf="(userPaymentData.currencyCode !=='USD')"  [ngStyle]="{'font-size': '22px'}">
+                                   Send {{userPaymentData.currencyCode}} to the following wallet address: <br>
+                                   <b style="word-wrap: break-word;">{{userPaymentData.address}}</b>
+                               </div>
+
+                               <div class="row" *ngIf="(userPaymentData.currencyCode !=='USD')">
+                                   <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 dc-small-grid-margin">-->
+                                   <!--<span class="dc-icon dc-mail-{{userPaymentData['currentType']}} dc-icon-md"></span>-->
+                                   <!--</div>-->
+                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       <img src="data:image/jpeg;base64,{{userPaymentData.qrCode}}" style="height: 200px;width: 200px; border: 1px solid #eaeaea; display:block; margin:auto">
+                                   </div>
+                               </div>
+
+                               <div *ngIf="(userPaymentData.currencyCode =='USD')" class=" wired-instructions">
+                                   <div [innerHTML]="userPaymentData.instruction">
+
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class="row" *ngIf="(userPaymentData.currencyCode !=='USD')">
+                           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 dc-small-grid-margin">
+                               <span class="dc-icon dc-mail-btc dc-icon-md"></span>
+                           </div>
+                           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dc-small-grid-margin">
+                               <span class="dc-description">We have sent you an email to confirm your purchase amount and the wallet address to send the tokens.</span>
+                           </div>
+                       </div>
+
+
+
+                       <div class="row" *ngIf="(userPaymentData.currencyCode !=='USD')">
+
+                           <div class=" col-xs-offset-2 col-lg-10 col-md-10 col-sm-10 col-xs-10 dc-small-grid-margin">
+                               By purchasing tokens, you confirm that you have read <br>and agree to our <a target="_blank" href="https://silvertoken.com/pdf/Silver%20Token%20Terms%20and%20Conditions%2010182017.pdf">Terms and Conditions</a>
+                           </div>
+                       </div>
+
+                   </div>
+
+               </div>
+            </div>
+
+
+
+
+        <!--<div class="_title dc-flex _w50 dc-center-margin dc-left-content">-->
+            <!--<span class="dc-icon" [ngStyle]="{'background': 'url(' + userPaymentData.currencyUrlImg + ') no-repeat'}"></span>-->
+            <!--<span class="dc-upper-case">BUY TOKENS WITH {{userPaymentData.currencyCode}}</span>-->
+        <!--</div>-->
+
+        <!--<div class="dc-flex">-->
+            <!--<div class="_w50 dc-center-margin">-->
+
+                <!--<div class="_item-1 dc-flex">-->
+                    <!--<div class="_w10">-->
+                        <!--<span class="dc-icon dc-7-days dc-icon-md"></span>-->
+                    <!--</div>-->
+                    <!--<div class="_w90">-->
+                        <!--Silvertokens will be distributed within 7 days after <br> the completion of the ICO.-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="_item dc-flex" *ngIf="paymentTypeDcnt" >-->
+                    <!--<app-stripe-payment-form-->
+                        <!--[userPaymentData]="userPaymentData"-->
+                    <!--&gt;</app-stripe-payment-form>-->
+                <!--</div>-->
+                <!--<div *ngIf="!paymentTypeDcnt">-->
+                    <!--<div class="_item dc-flex">-->
+                        <!--<div class="_w10">-->
+                            <!--<span class="dc-icon" [ngStyle]="{'background': 'url(' + userPaymentData.currencyUrlImg + ') no-repeat'}"></span>-->
+                        <!--</div>-->
+
+                        <!--<div *ngIf="(userPaymentData.currencyCode !=='USD')" class="_w90" [ngStyle]="{'font-size': '22px'}">-->
+                            <!--Send {{userPaymentData.currencyCode}} to the following wallet address: <br>-->
+                            <!--<b>{{userPaymentData.address}}</b>-->
+                        <!--</div>-->
+
+                        <!--<div *ngIf="(userPaymentData.currencyCode =='USD')" class="_w90 wired-instructions">-->
+                            <!--<div [innerHTML]="userPaymentData.instruction">-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                    <!--<div class="_item dc-flex">-->
+                        <!--<div class="_w10">-->
+                            <!--<span class="dc-icon dc-mail-{{userPaymentData['currentType']}} dc-icon-md"></span>-->
+                        <!--</div>-->
+                        <!--<div *ngIf="(userPaymentData.currencyCode !=='USD')" class="_w90">-->
+                            <!--We have sent you an email to confirm your purchase amount and the wallet address to send the tokens.-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div *ngIf="(userPaymentData.currencyCode !=='USD')" class="_item dc-flex">-->
+                        <!--<div class="_w30">-->
+                            <!--<img src="data:image/jpeg;base64,{{userPaymentData.qrCode}}" style="height: 200px;width: 200px; margin-left: 60px;border: 1px solid #eaeaea;">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="_item dc-flex ">-->
+                    <!--<div class="_w10"></div>-->
+                    <!--<div class="_w90 dc-text-italy">-->
+                        <!--By purchasing tokens, you confirm that you have read <br>and agree to our <a target="_blank" href="https://silvertoken.com/pdf/Silver%20Token%20Terms%20and%20Conditions%2010182017.pdf">Terms and Conditions</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+    </div>
+</div>

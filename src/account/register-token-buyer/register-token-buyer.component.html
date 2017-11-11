@@ -1,0 +1,100 @@
+﻿ <div class="col-md-6">
+
+    <div class="dc-login-container">
+
+        <div class="step-1">
+            <div class="dc-step-form">
+                <h1 class="dc-center">Create Account</h1>
+                <div class="dc-signup-step">
+                    <form>
+                        <div class="dc-input-group">
+                            <span class="dc-input-icon icon-profile"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <input placeholder="First Name" [(ngModel)]="model.firstName" [ngModelOptions]="{standalone: true}"
+                                   class="dc-input-form" type="text" id="first-name">
+                        </div>
+
+                        <div class="dc-input-group">
+                            <span class="dc-input-icon icon-profile"><i class="fa fa-address-card" aria-hidden="true"></i></span>
+                            <input placeholder="Last Name" [(ngModel)]="model.lastName" [ngModelOptions]="{standalone: true}"
+                                   class="dc-input-form" type="text" id="last-name">
+                        </div>
+                       <div class="dc-input-group auto-compleate-btn" >
+                           <span class="dc-input-icon icon-profile"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                           <p-autoComplete (onSelect)="selectCurrentCountry($event)" name="currentCountry" [(ngModel)]="currentCountry" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="1110"
+                                           [minLength]="1" placeholder="Country" [dropdown]="true">
+
+                           </p-autoComplete>
+                       </div>
+                        <!--<div *ngIf="currentCountry == 'United States'" class="dc-input-group auto-compleate-btn" >-->
+                            <!--<span class="dc-input-icon icon-profile"><i class="fa fa-globe" aria-hidden="true"></i></span>-->
+                            <!--<p-autoComplete (onSelect)="selectCurrentState($event)" name="selectCurrentState" [(ngModel)]="selectCurrentState" [suggestions]="filterStates" (completeMethod)="filterStates($event)" [size]="1110"-->
+                                            <!--[minLength]="1" placeholder="Country" [dropdown]="true">-->
+
+                            <!--</p-autoComplete>-->
+                        <!--</div>-->
+
+                        <div class="dc-input-group">
+                            <span class="dc-input-icon icon-profile"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <input placeholder="Email" [(ngModel)]="model.emailAddress" class="dc-input-form" type="email" id="emailBuyer" name="emailBuyer">
+                            <input placeholder="Email" class="dc-input-form" [class.hidden]="hiddenFilled" type="email" id="_emailBuyer" name="_emailBuyer" style="opacity: 0;">
+                        </div>
+                        <div class="dc-input-group">
+                            <span class="dc-input-icon icon-profile"><i class="fa fa-key" aria-hidden="true"></i></span>
+                            <input placeholder="********" [(ngModel)]="model.password" class="dc-input-form" type="password" id="_passwordBuyer" name="passwordBuyer">
+                            <input placeholder="********" [class.hidden]="hiddenFilled" class="dc-input-form" type="password" id="passwordBuyer" name="passwordBuyer" style="opacity: 0;">
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="dc-check-box-block">-->
+                    <!--<div class="dc-checkbox-blog">-->
+                        <!--<div class="col-md-1">-->
+                            <!--<div class="dc-checkbox ">-->
+                                <!--<input [value]="all1" type="checkbox" name="0" id="1">-->
+                                <!--<label for="1"></label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-11">-->
+                            <!--I confirm that I am not a citizen of the People's Republic of China, and/or live in the U.S. states of New York or Washington.-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="dc-checkbox-blog">-->
+                        <!--<div class="col-md-1">-->
+                            <!--<div class="dc-checkbox ">-->
+                                <!--<input [value]="all2"  type="checkbox" name="0" id="2">-->
+                                <!--<label for="2"></label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-11">-->
+                            <!--I have read and agree to the <a href="https://silvertoken.com/pdf/Silver%20Token%20Terms%20and%20Conditions%2010182017.pdf" target="_blank">terms and conditions</a> of the token sale-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="dc-check-box-block " >
+                    <button  class="dc-btn dc-btn-blue dc-full-width" (click)="save()">Create Account</button>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="dc-check-box-block">
+                            <a [routerLink]="['/account','login']">Already have an account?</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dc-check-box-block " >
+                            <!--<a style="float:right" [routerLink]="['/account','forgot-password']">Forgot Password?</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="col-md-6 visible-lg visible-md">
+    <div class="row dc-full-height">
+        <div class="dc-sign-form-background dc-signup-bg-1 dc-full-height">
+            <!--<img height="500px" src="/assets/img/signup-bg/bg-step-1.png" />-->
+            <img style="height:200px" src="/assets/img/signup-bg/bg-step-1-silver.png" />
+        </div>
+    </div>
+</div>

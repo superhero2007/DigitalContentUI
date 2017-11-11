@@ -1,0 +1,25 @@
+﻿<div bsModal #tosModal="bs-modal"
+     (onShown)="onShown()"
+     class="modal fade"
+     tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true"
+     [config]="{backdrop: 'static'}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span>Terms Of Service</span>
+                </h4>
+            </div>
+
+            <div class="modal-body" id="scrollRef" (scroll)="onScroll()" [style.height]="modalHeight+'px'">
+                <div [innerHTML]="tos?.tosContent"></div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="dc-btn dc-btn-mid-blue" (click)="save()" [disabled]="!scrolledToBottom">{{l("Accept")}}</button>
+            </div>
+        </div>
+    </div>
+</div>

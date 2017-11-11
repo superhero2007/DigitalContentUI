@@ -1,0 +1,72 @@
+<form #stripeForm="ngForm" novalidate (ngSubmit)="getToken(stripeForm.value); " >
+    <!--<span class="payment-message">{{message}}</span>-->
+    <span></span>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.firstName" name="firstName" type="text" minlength="2" #firstName="ngModel" placeholder="First Name" >
+        <!--<div class="dc-error-message" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">-->
+            <!--Please provide a valid first name-->
+        <!--</div>-->
+    </div>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.lastName" name="lastName" #lastName="ngModel" placeholder="Last Name" >
+        <!--<div class="dc-error-message" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">-->
+            <!--Please provide a valid last name-->
+        <!--</div>-->
+    </div>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.address1" name="address1" type="text" #address1="ngModel" placeholder="Address Line" >
+        <!--<div class="dc-error-message" *ngIf="address1.invalid && (address1.dirty || address1.touched)">-->
+            <!--Please provide a valid address-->
+        <!--</div>-->
+    </div>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.country" name="country" type="text" #country="ngModel" placeholder="Country" >
+        <!--<div class="dc-error-message" *ngIf="country.invalid && (country.dirty || country.touched)">-->
+        <!--Please select a country-->
+        <!--</div>-->
+    </div>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.city" name="city" type="text" class="short-input" #city="ngModel" placeholder="City" >
+            <input [(ngModel)]="stripeForm.state" name="state" type="text" class="short-input" #state="ngModel" placeholder="State" >
+            <input [(ngModel)]="stripeForm.zipCode" name="zipCode" type="text" class="short-input" #zipCode="ngModel" placeholder="Zip Code" >
+        <!--<div class="dc-error-message" *ngIf="city.invalid && (city.dirty || city.touched)">-->
+            <!--Please provide a valid city-->
+        <!--</div>-->
+        <!--<div class="dc-error-message" *ngIf="state.invalid && (state.dirty || state.touched)">-->
+            <!--Please select a valid state/region or province-->
+        <!--</div>-->
+        <!--<div class="dc-error-message" *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">-->
+            <!--Please provide a valid zip code-->
+        <!--</div>-->
+    </div>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.phone" name="phone" type="text" placeholder="Phone Number">
+    </div>
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.nameCard" name="nameCard" type="text" #nameCard="ngModel" placeholder="Name on Card" >
+        <!--<div class="dc-error-message" *ngIf="nameCard.invalid && (nameCard.dirty || nameCard.touched)">-->
+            <!--The name you entered is invalid, please provide a valid name-->
+        <!--</div>-->
+    </div>
+
+    <div class="dc-input-groups">
+            <input [(ngModel)]="stripeForm.cardNumber" name="cardNumber" type="number" size="20" data-stripe="number" #cardNumber="ngModel" placeholder="Card Number" required>
+        <div class="dc-error-message" *ngIf="cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)">
+            The card number you entered is invalid, please provide a valid card number
+        </div>
+    </div>
+
+    <div class="dc-input-groups">
+        <input [(ngModel)]="stripeForm.expiryMonth" name="expiryMonth" type="text" size="2" data-stripe="exp_month" maxlength="2" class="short-input" #expiryMonth="ngModel" pattern="^0?([1-9]|1[012])$" placeholder="Expiration(MM)" required>
+        <input [(ngModel)]="stripeForm.expiryYear" name="expiryYear" type="text" size="2" data-stripe="exp_year" maxlength="2" class="short-input" #expiryYear="ngModel" pattern="[0-9]{2}" placeholder="Expiration(YY)" required>
+            <input [(ngModel)]="stripeForm.cvc" name="cvc" type="text" class="short-input" size="3" data-stripe="cvc" #cvc="ngModel" pattern="[0-9]{3}" placeholder="CVC" required>
+        <div class="dc-error-message" *ngIf="(expiryYear.invalid || expiryMonth.invalid) && (expiryYear.dirty || expiryMonth.dirty || expiryYear.touched || expiryMonth.touched)">
+            The expiration date you entered is invalid, please provide a valid expiration date
+        </div>
+        <div class="dc-error-message" *ngIf="cvc.invalid && (cvc.dirty || cvc.touched)">
+            The security code does not match the card information provided, please provide a valid security code
+        </div>
+    </div>
+
+    <button type="submit" class="dc-btn dc-btn-blue dc-button-margin-top" >Submit Payment</button>
+</form>

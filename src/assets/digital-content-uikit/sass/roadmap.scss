@@ -1,0 +1,128 @@
+.dc-dashboard-roadmap {
+    margin-top: 114px;
+
+    $gutter: 30px;
+    $border-width: 3px;
+    $dot-diameter: 28px;
+
+    .dc-roadmap-timeline {
+        margin-top: 83px;
+        width:100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .dc-timeline-entry {
+            clear: both;
+            text-align: left;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: calc(30% + 13px);
+                bottom: 0;
+                width: 3px;
+                background-color: $dc-value-color;
+                opacity: 0.3;
+                height: 100%;
+            }
+
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+
+            .dc-timeline-entry-title {
+
+                font-size: 18px;
+                text-align: left;
+                color: $dc-title-color;
+
+                margin-bottom: .5em;
+                float: left;
+                width: 30%;
+                padding-right: $gutter;
+                position: relative;
+
+                h3 {
+                    margin: 0;
+                }
+
+                .dc-dot-marker {
+                    position: absolute;
+                    background-color: $dc-value-color;
+                    width: $dot-diameter;
+                    height: $dot-diameter;
+                    font-size: 18px;
+                    color: #ffffff;
+                    text-align: center;
+                    line-height: 28px;
+                    border-radius: 100%;
+                    top: 15%;
+                    right: -$dot-diameter;
+                    z-index: 99;
+                }
+
+            }
+
+            .dc-timeline-entry-body {
+                margin: 0 0 3em;
+                float: right;
+                width: 70%;
+                padding-left: 62px;
+
+                h3 {
+                    font-size: 26px;
+                    font-weight: 600;
+                    color: $dc-title-color;
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-weight: 300;
+                    text-align: left;
+                    color: $dc-title-color;
+
+                    &:first-child {
+                        margin-top: 0;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            &.active {
+
+                .dc-timeline-entry-title {
+                    h3 {
+                        color: $dc-value-color;
+                    }
+
+
+                    .dc-dot-marker {
+                        border: 13px solid $dc-active-dot-border;
+                        width: 54px;
+                        height: 54px;
+                        right: -40px;
+                        top: -13px;
+                        box-shadow: 0px 0px 0px 6px $dot-bg-3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+$dc-blue-color: #229eda;
+.dc-add-roadmap-item {
+    button {
+        border-radius: 0;
+        background: #fff;
+        border: 2px solid $dc-blue-color;
+        color: $dc-blue-color;
+        padding: 5px 15px;
+    }
+}

@@ -1,0 +1,60 @@
+<div class="row dc-roadmap-edit-form dc-form">
+    <div class="dc-roadmap-timeline-editor">
+        <div class="dc-roadmap-timeline-entry">
+            <pre>{{ dataCopy | json }}</pre>
+
+            <div class="dc-timeline-entry-title col-md-3">
+
+                <ng-datepicker [options]="options" [(ngModel)]="dataCopy.date"></ng-datepicker>
+
+                <div class="dc-form-item _dc-inline _dc-on-start">
+                    <div class="dc-checkbox ">
+                        <input type="checkbox" name="0" id="2" [(ngModel)]="dataCopy.includeFeatureYears">
+                        <label for="2"></label>
+                    </div>
+                    <label for="2">Include Feature Years</label>
+                </div>
+
+            </div>
+
+            <div class="dc-timeline-entry-body col-md-8">
+
+                <div class="dc-form-item">
+                    <input placeholder="Title" type="text" [(ngModel)]="dataCopy.title">
+                </div>
+
+                <div class="dc-form-item">
+                    <textarea placeholder="Description" name="itemDescription" [(ngModel)]="dataCopy.description" rows="5"></textarea>
+                </div>
+
+                <div class="dc-form-item _dc-inline">
+
+                    <div class="dc-form-item">
+                        <input [(ngModel)]="dataCopy.exchangeRate" placeholder="Rate" type="number">
+                    </div>
+
+                    <div class="dc-form-item">
+                        <input [(ngModel)]="dataCopy.minTokenToBuy" placeholder="Min tokens" type="number">
+                    </div>
+
+                    <div class="dc-form-item _dc-with-symbol">
+                        <input [(ngModel)]="dataCopy.bonus" placeholder="Bonus" type="number"><span class="symbol">%</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="dc-add-roadmap-item text-center">
+            <button class="dc-btn dc-btn-clear" (click)="cancel()">
+                <i class="fa fa-close"></i> Cancel
+            </button>
+
+            <button class="dc-btn" (click)="save()">
+                <i class="fa fa-plus"></i> Save
+            </button>
+        </div>
+
+    </div>
+</div>

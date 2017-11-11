@@ -1,0 +1,44 @@
+﻿@import "admin/token-sale/token-sale.component";
+//@import "open/landing/landing.component";
+
+//variables
+$primary-blue : #0cb4ce;
+
+.subscription-bar-visible {
+    margin-top: 100px;
+}
+
+li.dropdown.open .dropdown-toggle {background-color: transparent !important;}
+.dropdown-toggle:hover {
+    background-color: transparent !important;
+    span {color: #2299d7 !important;}
+}
+
+@media (max-width: 991px) {
+    .subscription-bar-visible {
+        margin-top: 15px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .subscription-bar-visible {
+        margin-top: 15px !important;
+    }
+}
+
+body {
+    background-color: #fff !important;
+}
+
+
+.dc-logo-container img{
+    padding: 0 !important;
+    height: 60px;
+}
+
+
+.wired-instruction {
+    br {
+        display: none;
+    }
+}

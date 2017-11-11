@@ -1,0 +1,34 @@
+<div class="container-fluid dc-mainheader-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dc-mainHeader">
+                <div class="dc-logo-container">
+                    <a href="http://silvertoken.com">
+                        <img src="{{logo ? logo : '/assets/img/logo.png'}}" alt="logo" class="logo-default"/>
+                    </a>
+                    <nav class="dc-header-navigation-container dc-navigation" >
+
+                        <ul *ngIf="!currentUrlLogin" class="dc-header-navigation">
+                            <li class="dc-menu-item dc-border-left"><a routerLink="/account/register-buyer"><i class="icon-virus"></i> Sign Up</a></li>
+                            <li class="dc-menu-item" ><a routerLink="/account/login" ><i class="icon-virus"></i> Log In</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dc-account-pages">
+
+    <!--<div class="dc-logo-standalone">-->
+        <!--<a>-->
+            <!--<img src="/assets/img/logo.png" alt="" height="80" class="dc-logo">-->
+        <!--</a>-->
+    <!--</div>-->
+
+    <div class="dc-wrapper ">
+        <router-outlet></router-outlet>
+    </div>
+</div>

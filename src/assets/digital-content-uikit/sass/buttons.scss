@@ -1,0 +1,74 @@
+.dc-btn {
+    color: white;
+    border: none;
+    border-radius: 0;
+    font-size: 16px;
+    height: 45px;
+    min-width: 125px;
+
+    &.dc-btn-xs {
+        min-width: 85px;
+        font-size: 12px;
+    }
+
+    &.dc-empty{
+        background: rgba(245, 245, 245, 0);
+        border: solid $white 1px;
+        color: $grey;
+    }
+
+    &.dc-btn-blue{
+        //background:$light-blue;
+        background:#3399FF;
+    }
+
+    &.dc-btn-mid-blue{
+        background:$mid-blue;
+    }
+
+    &.dc-btn-dark-blue{
+        background:$dark-blue;
+    }
+
+    &.dc-btn-green {
+        background:$light-green;
+    }
+
+    &.dc-btn-white {
+        background: #ffffff;
+        color: $light-blue;
+        border: 1px solid $light-blue;
+        span{
+            color:$light-blue;
+        }
+
+        &._dark {
+            color: $dark-blue;
+            border: 1px solid $dark-blue;
+
+            span {color: $dark-blue}
+        }
+    }
+
+    &.dc-btn-icon{
+        width: auto;
+        border-radius: 0;
+        text-transform: uppercase;
+        padding: 10px 30px;
+        span{
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+
+    &.dc-btn-round{
+        border-radius: 44px;
+    }
+}
+
+.ui-autocomplete-dd .ui-autocomplete-dropdown.ui-corner-all{
+    position: absolute !important;
+    right: 0px !important;
+    height: 47px;
+    top: 5px;
+}

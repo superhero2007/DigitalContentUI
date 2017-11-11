@@ -1,0 +1,93 @@
+<div class="dc-container dc-general-ledger-container">
+
+    <div class="dc-title">
+        General Ledger
+    </div>
+
+    <div class="dc-gl-filters dc-form">
+        <div>
+            <div class="dc-form-item">
+                <date-range-picker></date-range-picker>
+                <!--<input type="text">-->
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Debit">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Credit">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Amount">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Wallet">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Note">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Search by Users">
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <div class="dc-checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll"></label>
+                    </div>
+                </th>
+
+                <th>Date</th>
+                <th>Debit</th>
+                <th>Credit</th>
+                <th>Amount</th>
+                <th>Transaction</th>
+                <th>Wallet</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let item of list;let ind = index;">
+            <td>
+                <div class="dc-checkbox">
+                    <input type="checkbox" id="select{{ind}}">
+                    <label for="select{{ind}}"></label>
+                </div>
+            </td>
+            <td>
+                <span class="_date">
+                    {{item.date}}
+                </span>
+
+                <span class="_time">
+                    {{item.time}}
+                </span>
+            </td>
+            <td>{{item.debit}}</td>
+            <td>{{item.credit}}</td>
+            <td>{{item.amount}}<span class="_currency">{{item.curency}}</span></td>
+            <td>{{item.transactionId}}</td>
+            <td>{{item.walletId || 'N/A'}}</td>
+            <td>{{item.note}}</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

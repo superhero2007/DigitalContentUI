@@ -1,0 +1,131 @@
+<div class="container-fluid  dc-dashboard-container">
+    <div class="dc-title">
+        My ICO
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <h4 class="dc-title dc-title-md">ICO General Info</h4>
+            <div class="dc-form">
+                <div class="dc-form-item _lg-input">
+                    <input type="text" placeholder="Company..." [(ngModel)]="icoData.companyTenant">
+                </div>
+                <div class="dc-form-item _lg-input">
+                    <input type="text" placeholder="Token Name..." [(ngModel)]="icoData.tokenName">
+                </div>
+
+                <div class="dc-form-item _lg-input">
+                    <textarea placeholder="Token Description..." [(ngModel)]="icoData.tokenDescription"></textarea>
+                </div>
+
+                <div class="wired-instruction">
+                    <h4 class="dc-title dc-title-md">Wired Instruction for <b>USD</b></h4>
+                    <quill-editor [(ngModel)]="icoData.wiredInstruction" [style]="{height: '200px'}">
+                        <div quill-editor-toolbar>
+
+                            <span class="ql-formats">
+                                <button type="button" class="ql-bold"></button>
+                                <button type="button" class="ql-italic"></button>
+                                <button type="button" class="ql-underline"></button>
+                                <button type="button" class="ql-strike"></button>
+                            </span>
+
+                                    <span class="ql-formats">
+                                <select class="ql-size">
+                                    <option value="huge">Huge</option>
+                                    <option value="large">Large</option>
+                                    <option selected>Normal</option>
+                                    <option value="small">Small</option>
+                                </select>
+                            </span>
+
+                            <span class="ql-formats">
+                                <select class="ql-align" [title]="'Aligment'">
+                                    <option selected></option>
+                                    <option value="center"></option>
+                                    <option value="right"></option>
+                                    <option value="justify"></option>
+                                </select>
+                            </span>
+
+                            <span class="ql-formats">
+                                <button type="button" class="ql-list" value="ordered"></button>
+                                <button type="button" class="ql-list" value="bullet"></button>
+                            </span>
+
+                            <span class="ql-formats">
+                                <button type="button" class="ql-link"></button>
+                            </span>
+                        </div>
+                    </quill-editor>
+                </div>
+
+                <div class="text-center">
+                    <button class="dc-btn dc-btn-dark-blue" (click)="saveUpdateIcoData()">
+                        <i class="fa fa-save"></i> Save
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <h4 class="dc-title dc-title-md">Supported Currencies</h4>
+
+
+            <div class="supported-currencies-list">
+                <div class="supported-currency-item" *ngFor="let item of supportedCurrencies?.items">
+                    <h3 class="currency-name">
+                        <span *ngIf="item?.code != 'ETH'" class="dc-icon dc-icon-sm" [ngStyle]="{'background': 'url(' + item?.imageUrl + ')  no-repeat'}"></span>
+                        <span *ngIf="item?.code == 'ETH'" class="dc-icon dc-icon-sm dc-icon-eth"></span>
+                        {{item?.name}}
+                    </h3>
+                    <span class="currency-wallet-id" *ngIf="item?.code != 'USD'">{{item?.walletId || 'No Wallet ID'}}</span>
+
+                    <a class="remove-currency-btn" *ngIf="item?.code != 'USD'" (click)="removeSupportedCurrency(item)">&times;</a>
+                </div>
+            </div>
+
+            <div class="add-new-supported-currency" *ngIf="showAddForm">
+                <div
+                    class="dc-form">
+                    <div class="dc-form-item _lg-input dc-autocomplete-container" *ngIf="!selectedCurrency">
+                        <input type="text" (focus)="setFocus(true)" (blur)="setFocus(false)" [(ngModel)]="queryParams.Filter" placeholder="Search by Name or Code..." (ngModelChange)="getUpdatedCurrencies($event)">
+                         <div class="currencies-search-results" *ngIf="searchRes?.items?.length && queryParams.Filter.length >= 2 && filterFocused" id="AutoComplete">
+                             <ul>
+                                 <li *ngFor="let c of searchRes?.items" (click)="selectCurrency(c)">
+                                     {{c.name}}
+                                 </li>
+                             </ul>
+                         </div>
+                    </div>
+
+                    <div class="selected-currency" *ngIf="selectedCurrency">
+                        <img src="{{selectedCurrency?.imageUrl}}" width="30px" height="30px">
+                        {{selectedCurrency?.name}}
+                        <span class="reset-selected-currency" (click)="selectCurrency(null)">&times;</span>
+
+                    </div>
+                    <div class="dc-form-item _lg-input">
+                        <input type="text" placeholder="Wallet Id" [(ngModel)]="newCurrencyWalletId">
+                    </div>
+
+                    <div class="text-center">
+                        <button class="dc-btn dc-empty" (click)="cancelCurrencyAdding()">
+                            <i class="fa fa-close"></i> Cancel
+                        </button>
+
+                        <button class="dc-btn dc-btn-dark-blue" [disabled]="!selectedCurrency?.id || !newCurrencyWalletId" (click)="addNewSupportedCurrency()">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-new-currency text-center" *ngIf="!showAddForm">
+                <button class="dc-btn dc-btn-dark-blue" (click)="addNewSC()">
+                    <i class="fa fa-plus"></i> Add Currency
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

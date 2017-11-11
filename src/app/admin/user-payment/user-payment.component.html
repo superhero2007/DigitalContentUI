@@ -1,0 +1,124 @@
+<div [@routerTransition]>
+    <div class="row margin-bottom-5">
+        <div class="col-xs-4">
+            <div class="page-head">
+                <div class="page-title">
+                    <h1>
+                        <span>{{l("Transactions")}}</span>: <span>Manage payments</span>
+                    </h1>
+                </div>
+            </div>
+            <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+
+        </div>
+        <div class="col-xs-8 text-right">
+            <div class="row margin-bottom-10">
+                <div class="col-md-8">
+                    <div class="inputs inputs-full-width">
+                        <div class="portlet-input">
+                            <div class="input-group">
+                                <input [(ngModel)]="filterText" name="filterText" autoFocus class="form-control" placeholder="Wallet ID" type="text">
+                                <span class="input-group-btn">
+                                                <button (click)="getPaymentsByWallet()" class="btn default search-btn" type="submit"><i class="icon-magnifier"></i></button>
+                                </span>
+                                <!--<span class="input-group-btn">-->
+
+
+                                            <!--</span>-->
+
+
+                            </div>
+                            <!--<div class="input-group">-->
+                                <!--<p-toggleButton styleClass="btn-rescinded" onIcon="fa-check-square" offIcon="fa-square" onLabel="" offLabel="" [(ngModel)]="checkedRescinded" [style]="{'width':'70px'}" (click)="filterByRescinded()" ></p-toggleButton>-->
+                                <!--<button class="dc-btn dc-btn-modal dc-btn-blue general-search-btn" (click)="infoModal.showInfoModal()"> <i class="icon-magnifier"></i></button>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+
+
+                                <p-toggleButton styleClass="btn-rescinded" onIcon="fa-check-square" offIcon="fa-square" onLabel="" offLabel="" [(ngModel)]="checkedRescinded" [style]="{'width':'70px'}" (click)="filterByRescinded()" ></p-toggleButton>
+                                <button class="dc-btn dc-btn-modal dc-btn-blue general-search-btn" (click)="infoModal.showInfoModal()"> <i class="icon-magnifier"></i></button>
+
+
+
+
+
+                            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="primeng-datatable-container"
+     [busyIf]="primengDatatableHelper.isLoading">
+    <p-dataTable #dataTable
+                 (onLazyLoad)="getPayments($event)"
+                 [value]="primengDatatableHelper.records"
+                 rows="{{primengDatatableHelper.defaultRecordsCountPerPage}}"
+                 [paginator]="false"
+                 [lazy]="true"
+                 emptyMessage="{{l('NoData')}}"
+                 scrollable="true"
+                 ScrollWidth="100%"
+                 responsive="primengDatatableHelper.isResponsive"
+                 resizableColumns="primengDatatableHelper.resizableColumns"
+                 [(selection)]="record"
+                 [headerCheckboxToggleAllPages]="true">
+
+        <!--<p-column field="" [style]="{'width':'40px'}" class="dc-align-center"  selectionMode="multiple">-->
+
+        <!--</p-column>-->
+        <p-column field="id" header="ID" [sortable]="true" [style]="{'width':'40px'}"></p-column>
+        <p-column field="transactionStatus" header="Commitment" [sortable]="true" [style]="{'width':'95px'}"></p-column>
+        <p-column field="walletId" header="Wallet ID" [sortable]="true" [style]="{}"></p-column>
+        <!--<p-column field="currencyType" header="Currency Type" [sortable]="true" [style]="{}"></p-column>-->
+        <p-column field="fullName" header="Name" [sortable]="true" [style]="{}">
+
+        </p-column>
+        <!--<p-column field="lastName" header="Last Name" [sortable]="true" [style]="{}"></p-column>-->
+        <p-column field="fullPrice" header="Amount Due" [sortable]="true" [style]="{}">
+
+        </p-column>
+        <p-column field="paymentAmount" header="Payment Amount" [sortable]="true" [style]="{'width':'100px'}">
+
+        </p-column>
+        <p-column field="transactionDate" header="Date" [sortable]="true" [style]="{'width':'250px'}">
+
+        </p-column>
+        <p-column field="tokensIssued" header="Tokens Issued" [sortable]="true" [style]="{'width':'100px'}">
+
+        </p-column>
+        <p-column field="btn" header="RESCIND" [sortable]="false" [style]="{'width':'100px', 'text-align':'center'}">
+            <ng-template let-record="rowData" pTemplate="body">
+
+                <button class="dc-btn dc-btn-modal dc-btn-red" (click)="confirm(record)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+
+            </ng-template>
+        </p-column>
+        <p-column field="btn" header="Receive Funds" [sortable]="false" [style]="{'width':'100px', 'text-align':'center'}">
+            <ng-template let-record="rowData" pTemplate="body">
+
+            <button class="dc-btn dc-btn-modal dc-btn-blue" (click)="infoModal.showInfoModal(record)"><i class="fa fa-cogs" aria-hidden="true"></i></button>
+
+            </ng-template>
+        </p-column>
+
+    </p-dataTable>
+    <div class="primeng-paging-container">
+        <p-paginator rows="{{primengDatatableHelper.defaultRecordsCountPerPage}}"
+                     #paginator
+                     (onPageChange)="getPayments($event)"
+                     [totalRecords]="primengDatatableHelper.totalRecordsCount"
+                     [rowsPerPageOptions]="primengDatatableHelper.predefinedRecordsCountPerPage">
+        </p-paginator>
+        <span class="total-records-count">
+                      {{l('TotalRecordsCount', primengDatatableHelper.totalRecordsCount)}}
+        </span>
+    </div>
+    <app-info-modal #infoModal (tableShouldUpdate)="callGetPayments($event)"> </app-info-modal>
+</div>

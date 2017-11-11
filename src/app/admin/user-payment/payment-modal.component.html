@@ -1,0 +1,134 @@
+<div bsModal #lgModal="bs-modal" [config]="{backdrop: 'static'}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title pull-left">Receive Funds</h2>
+                <button type="button" class="close pull-right" (click)="lgModal.hide();" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                <div *ngIf="transactionEditForm.walletId==undefined">
+                <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="walletAddress" type="text" />
+
+                <button class='btn dc-btn-green' (click)="receiveSearch()"> get buy wallet ID</button>
+                </div>
+                    <form  #transactionForm="ngForm" (ngSubmit)="updateTransaction(transactionForm.value);">
+                        <input  [(ngModel)]="transactionEditForm.id" type="hidden" id="1" name="transactionId" #id="ngModel">
+                <!--<button class='btn' (click)="showAlert()"> get buy wallet ID</button>-->
+                <!--<form #transactionForm="ngForm" (ngSubmit)="updateTransaction(transactionForm.value);">-->
+
+                    <div class="">
+                        <p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue" label="Crypto"></p-radioButton>
+                        <p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue" label="Fiat"></p-radioButton>
+                    </div>
+
+                    <div *ngIf="selectedValue=='val1'">
+                        <div class="col-md-12 form-row">
+                            <div class="dc-inline-block-label">
+                                <label for="mywallet" class="dc-inline-block">Wallet</label>
+                            </div>
+                            <div class="dc-inline-block">
+                                <input [(ngModel)]="transactionEditForm.walletId" class="ng-tns-c2-1 ui-inputtext dc-payment-modal-input" type="text" id="mywallet" name="walletId" placeholder="Enter Your Wallet Id"  #walletId="ngModel">
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-row">
+                            <div class="dc-inline-block-label">
+                                <label for="mywallet" class="dc-inline-block"> Select currency type</label>
+                            </div>
+                            <div class="dc-inline-block">
+
+                                <select name="currencyType" class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.currencyType" #currencyType="ngModel">
+                                    <option value="eth" [ngValue]="eth">ETH</option>
+                                    <option value="btc" [ngValue]="btc" >BTC</option>
+                                    <option value="dcnt" [ngValue]="dcnt" >DCNT</option>
+                                    <option value="ltc" [ngValue]="ltc" >LTC</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div *ngIf="selectedValue=='val2'">
+                        <div class="col-md-12 form-row">
+                            <div class="dc-inline-block-label">
+                                <label class="">Select method of payment</label>
+                            </div>
+                            <div class="dc-inline-block">
+                                <select [(ngModel)]="transactionEditForm[methodPayment]" name="methodPayment" class="ng-tns-c2-1 ui-inputtext">
+                                    <option  value="paypal">PayPal</option>
+                                    <option value="wire">Wire</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12  form-row">
+                            <div class="dc-inline-block-label">
+                                <label for="tracking" >Tracking number</label>
+                            </div>
+                            <div class="dc-inline-block">
+                                <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.trackingNumber" type="text" id="tracking" name="tracking" placeholder="Enter Tracking Number" #trackingNumber="ngModel">
+                            </div>
+                        </div>
+                        <!--<p-dropdown [options]="currency" [(ngModel)]="transactionEditForm.currencyType" [ngModelOptions]="{standalone: true}"></p-dropdown>-->
+                    </div>
+                    <div class="col-md-12 form-row">
+                        <div class="dc-inline-block-label">
+                            <label for="amount" >Amount of Funds Sent</label>
+                        </div>
+
+                        <div class="dc-inline-block">
+                            <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.amountDue"  type="number" id="amount" name="amountOfFunds" placeholder="Enter The Amount of Funds Sent" #amountDue="ngModel">
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-row">
+                        <div class="dc-inline-block-label">
+                            <label for="amount" >Enter the date and time that the funds were received</label>
+                        </div>
+                        <div class="dc-inline-block">
+                            <div class="dc-input-few dc-input-time">
+                                <p-calendar [ngModel]="dateFull" #date="ngModel" [ngModelOptions]="{standalone: true}"></p-calendar>
+                            </div>
+                            <div class="dc-input-few dc-input-time">
+                                <p-calendar [ngModel]="timer" [timeOnly]="true" #time="ngModel" [ngModelOptions]="{standalone: true}"></p-calendar>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-row">
+                        <div class="dc-inline-block-label">
+                            <label for="amount" >Select a Sender</label>
+                        </div>
+                        <div class="dc-inline-block">
+                        <div class="dc-input-few">
+                            <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.userId" type="text" name="userId" placeholder="Enter Sender Id" #userId="ngModel"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="dc-input-few">
+                            <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.lastName" type="text" name="lastName" placeholder="Enter Sender Name" #lastName="ngModel"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="dc-input-few">
+                            <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.emailAddress" type="text" name="emailAddress" placeholder="Enter Sender Email" #emailAddress="ngModel"><i class="fa fa-search" aria-hidden="true"></i>
+
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-row">
+                        <div class="dc-inline-block-label">
+                            <label for="tokensIssued" >Tokens Issued</label>
+                        </div>
+                        <div class="dc-inline-block">
+                            <input class="ng-tns-c2-1 ui-inputtext" [(ngModel)]="transactionEditForm.tokensIssued"  type="number" id="tokensIssued" name="tokensIssued" placeholder="Enter The Tokens Issued" #tokensIssued="ngModel">
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class=" text-right" >
+                        <input class="dc-btn dc-btn-green" type="submit" value="Submit funds receipt">
+                    </div>
+
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

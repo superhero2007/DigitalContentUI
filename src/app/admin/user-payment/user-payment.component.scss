@@ -1,0 +1,67 @@
+.dc-options-block{
+    display: inline-block;
+    margin-right: 40px;
+}
+._flex{
+    display: flex;
+    margin: 7px 0;
+    input{
+        width: 100%;
+    }
+}
+._w40{
+    width: 40%;
+}
+._w30{
+    width: 30%;
+}
+._w20{
+    width: 20%;
+}
+
+.dc-inline-block{
+    display: inline-block;
+}
+.dc-recieve-row{
+    width: 100%;
+}
+.dc-inline-block-label{
+    display: inline-block;
+    width: 200px;
+    padding: 0px 5px;
+}
+.dc-input-few{
+    display: inline-block;
+    margin-right:10px;
+    position: relative;
+}
+.dc-input-time input{
+    width: 193px;
+}
+.form-row{
+    padding: 10px;
+}
+.dc-btn.dc-btn-modal {
+    font-size: 14px;
+    height: 35px;
+    min-width: 70px;
+}
+body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon{
+    top: 1.4px;
+}
+.general-search-btn{
+    margin-right: 19px;
+    margin-left: 20px;
+}
+.search-btn{
+    margin-right: 45px;
+}
+i.fa.fa-search {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    color: grey;
+}
+body .btn-rescinded.ui-togglebutton:not(.ui-state-disabled).ui-state-active {
+    background: #ea6060;
+}

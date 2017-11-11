@@ -1,0 +1,66 @@
+<div class="dc-container dc-general-ledger-container">
+
+    <div class="dc-title">
+        Chart Of Accounts
+    </div>
+
+    <div class="dc-gl-filters dc-form">
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Account code">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="Description">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item">
+                <input type="text" placeholder="User Id">
+            </div>
+        </div>
+        <div>
+            <div class="dc-form-item _dc-inline _dc-on-start">
+                <div class="dc-checkbox ">
+                    <input type="checkbox" name="0" id="2">
+                    <label for="2"></label>
+                </div>
+                <label for="2">Has Ballace</label>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <div class="dc-checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll"></label>
+                    </div>
+                </th>
+                <th>Account Code</th>
+                <th>Description</th>
+                <th>Balance</th>
+                <th>User</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let item of list;let ind = index;">
+            <td>
+                <div class="dc-checkbox">
+                    <input type="checkbox" id="select{{ind}}">
+                    <label for="select{{ind}}"></label>
+                </div>
+            </td>
+            <td>{{item.accountCode}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.balance}}<span class="_currency" *ngIf="item.balance">{{item.currency}}</span></td>
+            <td>{{item.user}}</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

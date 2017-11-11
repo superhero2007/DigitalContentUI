@@ -1,0 +1,46 @@
+<div class="container-fluid  dc-dashboard-container">
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="dc-title">
+                Roadmap Builder
+            </div>
+
+            <div class="dc-dashboard-roadmap">
+
+                <div class="dc-roadmap-container">
+                    <div class="dc-roadmap-timeline">
+                        <div class="dc-timeline-entry" *ngFor="let entity of roadMap;let ind = index;">
+                            <div class="dc-timeline-entry-title">
+                                <h3>{{entity?.date}}{{entity.includeFeatureYears ? '+' : ''}}</h3>
+                                <div class="dc-roadmap-actions">
+                                    <a (click)="addOrEdit(entity, ind)"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a (click)="remove(ind)"><i class="fa fa-trash"></i> Remove</a>
+                                    <a (click)="moveItem('up', ind)" *ngIf="roadMap.length >= 2 && ind != 0"><i class="fa fa-angle-double-up"></i></a>
+                                    <a (click)="moveItem('down', ind)" *ngIf="roadMap.length >= 2 && ind != roadMap.length-1"><i class="fa fa-angle-double-down"></i></a>
+                                </div>
+                                <span class="dc-dot-marker">{{ind + 1}}</span>
+                            </div>
+                            <div class="dc-timeline-entry-body">
+                                <h3>{{entity?.title}}</h3>
+                                <p>{{entity?.description}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <app-roadmap-form *ngIf="addEditMode" (onSave)="save($event)" (onCancel)="cancel($event)" [(data)]="selectedRoadMap"></app-roadmap-form>
+
+                    <div class="dc-add-roadmap-item text-center">
+                        <button class="dc-btn" (click)="addOrEdit()" [class.hidden]="addEditMode">
+                            <i class="fa fa-plus"></i> Add Roadmap Item
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
